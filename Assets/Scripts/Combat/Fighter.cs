@@ -1,16 +1,19 @@
 using RPG.Movement;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour
+    public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float weaponRange = 2f;
-        private Mover mover;
         private Transform target;
+        private ActionScheduler actionScheduler;
+        private Mover mover;
 
         private void Awake()
         {
+            actionScheduler = GetComponent<ActionScheduler>();
             mover = GetComponent<Mover>();
         }
 
@@ -18,20 +21,24 @@ namespace RPG.Combat
         {
             if (target == null) return;
 
-            float distance = Vector3.Distance(transform.position, target.position);
-
-            if (distance > weaponRange)
+            if (!GetIsInRange())
             {
                 mover.MoveTo(target.position);
             }
             else
             {
-                mover.Stop();
+                mover.Cancel();
             }
+        }
+
+        private bool GetIsInRange()
+        {
+            return Vector3.Distance(transform.position, target.position) < weaponRange;
         }
 
         public void Attack(CombatTarget combatTarget)
         {
+            actionScheduler.StartAction(this);
             target = combatTarget.transform;
         }
 
