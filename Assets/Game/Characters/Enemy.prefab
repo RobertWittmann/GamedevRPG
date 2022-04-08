@@ -72,6 +72,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1517659067461747037, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4617694596771148001, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
       propertyPath: health
       value: 20
@@ -152,3 +156,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33724a56bbe336347b9dce9927bccf22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &827415367753144401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4577597328753351454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3c6697398e3334d90dcd1d29299c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistance: 5

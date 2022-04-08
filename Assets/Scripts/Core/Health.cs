@@ -1,16 +1,18 @@
 using UnityEngine;
-namespace RPG.Combat
+namespace RPG.Core
 {
     public class Health : MonoBehaviour
     {
         [SerializeField] private float healthPoints = 100f;
         private Animator animator;
+        private ActionScheduler actionScheduler;
         private bool isDead = false;
         public bool IsDead { get { return isDead; } }
 
         private void Awake()
         {
             animator = GetComponent<Animator>();
+            actionScheduler = GetComponent<ActionScheduler>();
         }
 
 
@@ -27,6 +29,7 @@ namespace RPG.Combat
         {
             isDead = true;
             animator.SetTrigger("die");
+            actionScheduler.CancelCurrentAction();
         }
     }
 }

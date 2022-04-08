@@ -10,16 +10,20 @@ namespace RPG.Movement
         private NavMeshAgent agent;
         private Animator animator;
         private ActionScheduler actionScheduler;
+        private Health health;
 
         private void Awake()
         {
             actionScheduler = GetComponent<ActionScheduler>();
             agent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
+            health = GetComponent<Health>();
         }
 
         private void Update()
         {
+            agent.enabled = !health.IsDead;
+
             UpdateAnimator();
         }
 
