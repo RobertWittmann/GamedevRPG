@@ -1,10 +1,11 @@
 using RPG.Core;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] private Transform target;
         [SerializeField] private float maxSpeed = 6f;
@@ -52,6 +53,18 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             animator.SetFloat("forwardSpeed", speed);
+        }
+
+        public object CaptureState()
+        {
+            return new SerialisableVector3(transform.position);
+        }
+
+        public void RestoreState(object state)
+        {
+            SerialisableVector3 position = (SerialisableVector3)state;
+            transform.position = position.ToVector();
+            actionScheduler.CancelCurrentAction();
         }
     }
 }
