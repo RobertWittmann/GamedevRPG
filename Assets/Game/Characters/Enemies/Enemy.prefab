@@ -64,6 +64,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
   m_PrefabInstance: {fileID: 978360605109312826}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &978360605108925654 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 403948, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 978360605109312826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &978360605108982974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 978360605109312826}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5464426424638017459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +134,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7721733420476237989, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: f858c9efda3c67d4997c48d84820b69e, type: 2}
+    - target: {fileID: 7721733420476237989, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: f858c9efda3c67d4997c48d84820b69e, type: 2}
+    - target: {fileID: 7721733420476237989, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 978360605108982974}
+    - target: {fileID: 7721733420476237989, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: leftHandTransform
+      value: 
+      objectReference: {fileID: 978360605108925654}
+    - target: {fileID: 7721733420476237989, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
+      propertyPath: rightHandTransform
+      value: 
+      objectReference: {fileID: 978360605108982974}
     - target: {fileID: 8382164715107800237, guid: 6c072503ba7835c4c80b281f51568a27, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -170,3 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 5
+  patrolPath: {fileID: 0}
+  waypointTolerance: 0.5
+  waypointDwellTime: 3
+  patrolSpeedFraction: 0.2

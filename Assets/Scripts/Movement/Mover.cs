@@ -63,7 +63,9 @@ namespace RPG.Movement
         public void RestoreState(object state)
         {
             SerialisableVector3 position = (SerialisableVector3)state;
+            agent.enabled = false;
             transform.position = position.ToVector();
+            agent.enabled = true;
             actionScheduler.CancelCurrentAction();
         }
     }

@@ -9,9 +9,14 @@ namespace RPG.SceneManagement
         [SerializeField] float fadeInTime = 2f;
         private CanvasGroup canvasGroup;
 
-        private void Start()
+        private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
+        }
+
+        public void SetFade(float amount)
+        {
+            canvasGroup.alpha = Mathf.Clamp(amount, 0, 1);
         }
 
         public IEnumerator FadeOut()
