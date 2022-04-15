@@ -9,7 +9,10 @@ namespace RPG.Combat
         {
             if (other.tag == "Player")
             {
-                other.GetComponent<Fighter>().EquipWeapon(weapon);
+                Fighter fighter = other.GetComponent<Fighter>();
+                if (fighter == null) return;
+                if (fighter.CurrentWeapon == weapon) return;
+                fighter.EquipWeapon(weapon);
                 Destroy(gameObject);
             }
         }

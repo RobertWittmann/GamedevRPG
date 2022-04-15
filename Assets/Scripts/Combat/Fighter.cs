@@ -14,6 +14,7 @@ namespace RPG.Combat
         private Health target;
         private float timeSinceLastAttack = Mathf.Infinity;
         private Weapon currentWeapon = null;
+        public Weapon CurrentWeapon { get { return currentWeapon; } }
 
         private ActionScheduler actionScheduler;
         private Mover mover;
