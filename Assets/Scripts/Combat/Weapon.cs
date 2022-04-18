@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -30,9 +30,15 @@ namespace RPG.Combat
                 GameObject weapon = Instantiate(equippedPrefab, handTransform);
                 weapon.name = weaponName;
             }
+
+            var overrideController = animator.runtimeAnimatorController as AnimatorOverrideController;
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
+            }
+            else if (overrideController != null)
+            {
+                animator.runtimeAnimatorController = overrideController.runtimeAnimatorController;
             }
         }
 

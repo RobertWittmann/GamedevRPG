@@ -1,4 +1,4 @@
-using RPG.Core;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -9,7 +9,7 @@ namespace RPG.Combat
         [SerializeField] bool isHoming = false;
         [SerializeField] GameObject hitEffect = null;
         [SerializeField] GameObject[] destroyOnHit = null;
-        [SerializeField] float lifeAfterImpact = 2f;
+        [SerializeField] float lifeAfterImpact = 0f;
         [SerializeField] float projectileLifetime = 5f;
 
         private Health target = null;

@@ -53,6 +53,7 @@ MonoBehaviour:
   destroyOnHit:
   - {fileID: 5742270428864362320}
   lifeAfterImpact: 0.2
+  projectileLifetime: 5
 --- !u!136 &6326161523094098580
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 191276265460963508, guid: 15f16897e3c26a54199e7ae7cf464096, type: 3}
+      propertyPath: startingLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 191276265460963508, guid: 15f16897e3c26a54199e7ae7cf464096, type: 3}
+      propertyPath: characterClass
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 827415367753144401, guid: 15f16897e3c26a54199e7ae7cf464096, type: 3}
       propertyPath: chaseDistance
       value: 15

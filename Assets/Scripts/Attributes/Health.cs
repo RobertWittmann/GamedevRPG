@@ -1,6 +1,8 @@
+using RPG.Core;
 using RPG.Saving;
+using RPG.Stats;
 using UnityEngine;
-namespace RPG.Core
+namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -16,6 +18,10 @@ namespace RPG.Core
             actionScheduler = GetComponent<ActionScheduler>();
         }
 
+        private void Start()
+        {
+            healthPoints = GetComponent<BaseStats>().GetHealth();
+        }
 
         public void TakeDamage(float damage)
         {
@@ -24,6 +30,11 @@ namespace RPG.Core
             {
                 Die();
             }
+        }
+
+        public float GetPercentage()
+        {
+            return Mathf.Ceil(100 * (healthPoints / GetComponent<BaseStats>().GetHealth()));
         }
 
         private void Die()

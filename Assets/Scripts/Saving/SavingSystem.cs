@@ -84,6 +84,7 @@ namespace RPG.Saving
 
         private string GetPathFromSaveFile(string saveFile)
         {
+            Debug.Log(Path.Combine(Application.persistentDataPath, saveFile + ".sav"));
             return Path.Combine(Application.persistentDataPath, saveFile + ".sav");
         }
     }
