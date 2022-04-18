@@ -82,11 +82,11 @@ namespace RPG.Combat
             if (target == null) return;
             if (currentWeapon.HasProjectile)
             {
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(gameObject, rightHandTransform, leftHandTransform, target);
             }
             else
             {
-                target.TakeDamage(currentWeapon.WeaponDamage);
+                target.TakeDamage(gameObject, currentWeapon.WeaponDamage);
             }
         }
 

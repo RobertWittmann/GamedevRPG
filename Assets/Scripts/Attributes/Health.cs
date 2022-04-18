@@ -20,21 +20,30 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            healthPoints = GetComponent<BaseStats>().GetHealth();
+            healthPoints = GetComponent<BaseStats>().GetStat(Stat.Health);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject instigator, float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
             if (healthPoints == 0 && !isDead)
             {
+                AwardExperience(instigator);
                 Die();
             }
         }
 
+        private void AwardExperience(GameObject instigator)
+        {
+            Experience experience = instigator.GetComponent<Experience>();
+            if (experience == null) return;
+            experience.GainExperience(GetComponent<BaseStats>().GetStat(Stat.ExperienceReward));
+
+        }
+
         public float GetPercentage()
         {
-            return Mathf.Ceil(100 * (healthPoints / GetComponent<BaseStats>().GetHealth()));
+            return Mathf.Ceil(100 * (healthPoints / GetComponent<BaseStats>().GetStat(Stat.Health)));
         }
 
         private void Die()

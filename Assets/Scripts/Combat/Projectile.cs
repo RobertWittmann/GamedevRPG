@@ -14,6 +14,7 @@ namespace RPG.Combat
 
         private Health target = null;
         private float damage = 0;
+        private GameObject instigator = null;
 
         private void Start()
         {
@@ -32,10 +33,11 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(GameObject instigator, Health target, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
         }
 
         private Vector3 GetAimLocation()
@@ -76,7 +78,7 @@ namespace RPG.Combat
             {
                 Destroy(toDestroy);
             }
-            hitTarget.TakeDamage(damage);
+            hitTarget.TakeDamage(instigator, damage);
             Destroy(gameObject, lifeAfterImpact);
         }
     }
