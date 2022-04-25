@@ -2960,6 +2960,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2475871296778587501, guid: 262e9eb2a223bff48b00f3e4b15f8a32, type: 3}
+      propertyPath: cursorMappings.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475871296778587501, guid: 262e9eb2a223bff48b00f3e4b15f8a32, type: 3}
+      propertyPath: cursorMappings.Array.data[3].type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475871296778587501, guid: 262e9eb2a223bff48b00f3e4b15f8a32, type: 3}
+      propertyPath: cursorMappings.Array.data[3].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
     - target: {fileID: 3462508652399328356, guid: 262e9eb2a223bff48b00f3e4b15f8a32, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.342438
