@@ -6,8 +6,8 @@ namespace RPG.Combat
 {
     public class EnemyHealthDisplay : MonoBehaviour
     {
-        Fighter player;
-        TextMeshProUGUI TextMesh;
+        private Fighter player;
+        private TextMeshProUGUI TextMesh;
 
         private void Awake()
         {
@@ -20,11 +20,12 @@ namespace RPG.Combat
             Health target = player.Target;
             if (target == null)
             {
-                TextMesh.text = $"%%";
+                TextMesh.text = $"NaN";
             }
             else
             {
-                TextMesh.text = $"{target.GetPercentage()}%";
+
+                TextMesh.text = $"{target.HealthPoints}/{target.GetMaxHealth()}";
             }
         }
     }
