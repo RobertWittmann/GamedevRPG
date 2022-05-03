@@ -78,6 +78,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: -1
   spawnPoint: {fileID: 7035093178247659198}
+  destination: 0
+  fadeWaitTime: 0.5
 --- !u!1 &8860625144167379386
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,5 +109,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5338009961020051993}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

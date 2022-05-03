@@ -25,7 +25,7 @@ namespace RPG.Combat
             else
             {
 
-                TextMesh.text = $"{target.HealthPoints}/{target.GetMaxHealth()}";
+                TextMesh.text = $"{Mathf.Ceil(target.HealthPoints)}/{target.GetMaxHealth()}";
             }
         }
     }

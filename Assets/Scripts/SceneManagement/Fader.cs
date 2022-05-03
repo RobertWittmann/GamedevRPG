@@ -5,9 +5,10 @@ namespace RPG.SceneManagement
 {
     public class Fader : MonoBehaviour
     {
-        [SerializeField] float fadeOutTime = 1f;
-        [SerializeField] float fadeInTime = 2f;
+        [SerializeField] float fadeTime = 1f;
+
         private CanvasGroup canvasGroup;
+        private Coroutine currentActiveFade = null;
 
         private void Awake()
         {
@@ -19,19 +20,27 @@ namespace RPG.SceneManagement
             canvasGroup.alpha = Mathf.Clamp(amount, 0, 1);
         }
 
-        public IEnumerator FadeOut()
+        public Coroutine FadeOut()
         {
-            while (canvasGroup.alpha < 1)
-            {
-                canvasGroup.alpha += Time.deltaTime / fadeOutTime;
-                yield return null;
-            }
+            return Fade(1);
         }
-        public IEnumerator FadeIn()
+
+        public Coroutine FadeIn()
         {
-            while (canvasGroup.alpha > 0)
+            return Fade(0);
+        }
+        public Coroutine Fade(float target)
+        {
+            if (currentActiveFade != null) StopCoroutine(currentActiveFade);
+            currentActiveFade = StartCoroutine(FadeRoutine(target));
+            return currentActiveFade;
+        }
+
+        private IEnumerator FadeRoutine(float target)
+        {
+            while (!Mathf.Approximately(canvasGroup.alpha, target))
             {
-                canvasGroup.alpha -= Time.deltaTime / fadeInTime;
+                canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, target, Time.deltaTime / fadeTime);
                 yield return null;
             }
         }
